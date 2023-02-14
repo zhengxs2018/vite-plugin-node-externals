@@ -26,7 +26,7 @@ export default defineConfig({
 
 ## 为什么会有这个？
 
-目前 vite 对于纯 JavaScript 的文件打包已经非常友好，但没有剔除第三方模块的；如果是想要发布一个模块来说，这是难以接受的。
+目前 vite 对于纯 JavaScript 的文件打包已经非常友好，但没有剔除第三方模块的；如果是想要发布一个模块，这是难以接受的。
 
 同时因为 vite 的 [插件顺序](https://cn.vitejs.dev/guide/api-plugin.html#plugin-ordering) 导致 [rollup-plugin-node-externals] 模块无法生效。
 
