@@ -1,0 +1,69 @@
+{
+  "name": "vite-plugin-node-externals",
+  "version": "0.0.1",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    "import": "./dist/index.mjs",
+    "require": "./dist/index.js"
+  },
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "dev": "vite build --watch",
+    "build": "vite build",
+    "lint": "pnpm _phase:lint && pnpm _phase:format --check && pnpm _phase:cspell --cache",
+    "format": "pnpm _phase:format --write",
+    "_phase:lint": "eslint src/**/*.ts",
+    "_phase:format": "prettier \"**/*.{cjs,ts}\" --loglevel=warn --plugin=@trivago/prettier-plugin-sort-imports",
+    "_phase:cspell": "cspell \"**/*.{cjs,ts,json,md}\""
+  },
+  "files": [
+    "dist/"
+  ],
+  "publishConfig": {
+    "access": "public",
+    "registry": "https://registry.npmjs.org"
+  },
+  "peerDependencies": {
+    "vite": "latest"
+  },
+  "dependencies": {
+    "rollup-plugin-node-externals": "latest"
+  },
+  "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.49.0",
+    "@typescript-eslint/parser": "^5.49.0",
+    "@types/eslint": "^8.4.10",
+    "@types/node": "^18.11.18",
+    "cspell": "^6.19.2",
+    "eslint": "^8.33.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-import-resolver-typescript": "^3.5.3",
+    "eslint-plugin-import": "^2.27.5",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-tsdoc": "^0.2.17",
+    "eslint-plugin-unicorn": "^45.0.2",
+    "prettier": "^2.8.3",
+    "typescript": "^4.9.5",
+    "vite": "^4.0.4",
+    "vite-plugin-dts": "^1.7.2"
+  },
+  "packageManager": "pnpm@7.0.0",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@vue/compiler-sfc",
+        "rollup"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "author": {
+    "name": "zhengxs2018",
+    "email": "zhengxs2018@foxmail.com"
+  },
+  "license": "MIT"
+}
